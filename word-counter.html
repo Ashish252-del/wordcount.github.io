@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>word-counter</title>
+    <style>
+        body{
+            padding: 50px 100px;
+
+        }
+        h1{
+            text-align: center;
+            background-color: aqua;
+            padding: 10px;
+            margin: 0;
+        
+        }
+        textarea{
+         width: 99.4%;
+        resize: none;
+        border-color: aqua;
+        font-size: 15px;
+
+        }
+        p{
+            text-align: center;
+            background-color: rgb(17, 156, 110);
+            font-size: 25px;
+            font-weight: bold;
+            color: white;
+            padding: 10px;
+            margin: 0;
+
+        }
+        button{
+            font-size: 25px;
+            padding: 15px;
+            background-color: rgb(17, 156, 110);
+            border-radius: 10%;
+            color: aliceblue;
+            margin-top: 20px;
+            position: relative;
+            left: 45%;
+        }
+    </style>
+</head>
+<body>
+    <h1>word and character counter</h1>
+   <textarea id="textbox" cols="30" rows="10"></textarea>
+   <p>
+       <span id="word">0</span> words and <span id="char">0</span> characters
+   </p> 
+   <button id="btn" >Clear</button>
+   <script>
+       let textbox = document.getElementById("textbox");
+       var text;
+       textbox.addEventListener('input', function(){
+            text = this.value;
+            let c = text.length;
+            document.getElementById("char").innerHTML=c;
+            text = text.trim();
+        let w = text.split(" ");
+        let cleanlist = w.filter(function(elm){
+            return elm != "";
+        });
+        document.getElementById("word").innerHTML= cleanlist.length; 
+       });
+     btn.addEventListener("click", function () {
+           textbox.value = "";
+            document.getElementById("char").innerHTML = 0;
+            document.getElementById("word").innerHTML = 0; 
+        });
+
+   </script>
+</body>
+</html>
